@@ -25,4 +25,6 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt install rsync
+            echo $HOST
+            echo $USER
             rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --progress ./build/ $USER@$HOST:~/my_site --delete
