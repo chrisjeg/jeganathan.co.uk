@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from "classnames";
 import OnVisible from 'react-on-visible';
 import './Banner.scss'
 
