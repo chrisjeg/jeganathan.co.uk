@@ -1,0 +1,55 @@
+.home {
+  .razer-animation {
+    display: flex;
+    justify-content: center;
+
+    .razer-board {
+      display: flex;
+      max-width: 500px;
+      align-items: flex-end;
+      align-self: center;
+      flex-wrap: wrap;
+      margin: 20px;
+      > .keys {
+        display: flex;
+        flex-grow: 5;
+        align-items: flex-end;
+
+        .key {
+          width: 40px;
+          height: 40px;
+          flex-grow: 1;
+          background-color: #1f363d;
+          color: #f6f9f4;
+          margin: 4px;
+          padding-left: 10px;
+          border-radius: 10px;
+          border-bottom: 5px solid #111e22;
+          &.pressed {
+            border-bottom: 0;
+          }
+          &.key0 {
+            color: #fea3aa;
+            text-shadow: 0 0 2px #fea3aa;
+          }
+          &.key1 {
+            color: #f8b88b;
+            text-shadow: 0 0 2px #f8b88b;
+          }
+          &.key2 {
+            color: #faf884;
+            text-shadow: 0 0 2px #faf884;
+          }
+          &.key3 {
+            color: #baed91;
+            text-shadow: 0 0 2px #baed91;
+          }
+          &.key4 {
+            color: #b2cefe;
+            text-shadow: 0 0 2px #b2cefe;
+          }
+        }
+      }
+    }
+  }
+}

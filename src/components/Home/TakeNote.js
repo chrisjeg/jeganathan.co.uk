@@ -9,11 +9,11 @@ export default ()=>(
                     <div id="animated_note">
                         <div className="stavesection">
                             <div className="staves">
-                                <div className="s1"></div>
-                                <div className="s2"></div>
-                                <div className="s3"></div>
-                                <div className="s4"></div>
-                                <div className="s5"></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
                             </div>
                             <div className="sidestem">
                                 <div className="box stem front"></div>
