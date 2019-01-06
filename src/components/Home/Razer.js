@@ -11,9 +11,7 @@ function RazerSection() {
   const [activeKey, setActiveKey] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => {
-      setActiveKey((activeKey + 1) % KEYS.length);
-    }, 600);
+    setTimeout(() => setActiveKey((activeKey + 1) % KEYS.length), 600);
   });
 
   return (
@@ -37,6 +35,5 @@ function RazerSection() {
     </div>
   );
 }
-
 
 export default RazerSection;

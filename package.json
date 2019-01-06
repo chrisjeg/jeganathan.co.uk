@@ -19,6 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage":"https://jeganathan.co.uk",
   "eslintConfig": {
     "extends": "react-app"
   },
