@@ -1,0 +1,80 @@
+@import "../_colors";
+.home {
+  .bio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-grow: 1;
+
+    .full-name {
+      align-self: flex-start;
+      font-size: 20px;
+      margin-bottom: 20px;
+
+      .last-name {
+        color: $true-black;
+        align-self: flex-start;
+        font-size: 40px;
+
+        .raised {
+          position: relative;
+          z-index: 1;
+        }
+
+        .text-highlight {
+          top: -35px;
+          left: 10px;
+          width: 235px;
+          height: 40px;
+          position: relative;
+          background-color: $yellow;
+          margin-bottom: -20px;
+        }
+      }
+    }
+
+    .picture-row {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+
+      .bio-picture {
+        > img {
+          width: 300px;
+          height: 300px;
+          border-radius: 150px;
+          border: 5px solid white;
+          box-sizing: border-box;
+          opacity: 0;
+          transition: opacity 1s;
+        }
+        > img.loaded {
+          opacity: 1;
+        }
+        > .bio-description {
+          text-align: right;
+          position: relative;
+          top: -80px;
+          transform: rotateZ(-20deg);
+          font-size: 30px;
+          margin-bottom: -60px;
+          transition: transform 1s, font-size 1s, margin-left 1s, top 1s;
+          .role {
+            background-color: $yellow;
+            color: $true-black;
+          }
+          .location {
+            background-color: $true-black;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (orientation: portrait) and (max-height: 710px) {
+  .App > :first-child {
+    height: 100vh;
+  }
+}

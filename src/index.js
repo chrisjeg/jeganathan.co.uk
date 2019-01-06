@@ -1,7 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './pages/SpotifyAnalysis';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./index.css";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import Home from "./pages/Home";
+import SpotifyAnalysis from "./pages/SpotifyAnalysis";
 
+const AppRouter = () => (
+  <Router>
+    <>
+      <Route path="/" exact component={Home} />
+      <Route path="/spotify-analysis/" component={SpotifyAnalysis} />
+    </>
+  </Router>
+);
+
+ReactDOM.render(<AppRouter />, document.getElementById("root"));

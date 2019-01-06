@@ -1,0 +1,22 @@
+.home {
+  .spotify-key-signatures {
+    display: flex;
+    justify-content: center;
+
+    @keyframes vinyl {
+      0% {
+        transform: rotateZ(0deg);
+      }
+      100% {
+        transform: rotateZ(359deg);
+      }
+    }
+
+    .spotify-record {
+      height: 150px;
+      width: 150px;
+      margin: 40px;
+      animation: vinyl 4s infinite;
+    }
+  }
+}

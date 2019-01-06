@@ -1,6 +1,6 @@
-import React, { Component, useReducer } from 'react';
+import React, { useReducer } from "react";
 import {
-  XYPlot,
+  FlexibleWidthXYPlot,
   XAxis,
   YAxis,
   HorizontalGridLines,
@@ -9,205 +9,221 @@ import {
   AreaSeries,
   GradientDefs,
   DiscreteColorLegend
-} from 'react-vis';
+} from "react-vis";
 import chunk from "lodash.chunk";
-import reducer from "../reducers/SpotifyAnalysis";
+
+import reducer, { initialState } from "../reducers/SpotifyAnalysis";
+
+import {
+  toggleDomain,
+  decrementWindowSize,
+  incrementWindowSize,
+  setHoveredFeature,
+  setSelectedFeature,
+  setHoveredYear
+} from "../actions/SpotifyAnalysis";
+import "./SpotifyAnalysis.scss";
+import { Flex } from "../components/Layout";
+import Banner from "../components/Banner";
+import {
+  GRAPH_COLORS,
+  MONTHS,
+  AUDIO_FEATURES,
+  movingAverage
+} from "../lib/graphs";
 
 import playlists from "../playlistData.json";
 import monthlyPlaylists from "../monthlyPlaylistData.json";
+const playlistsByYear = chunk(playlists, 12);
 
-import './SpotifyAnalysis.scss';
-import Banner from '../components/Banner.js';
+// Styles
+const lightGreyStroke = {
+  stroke: "#DDD"
+};
+const xAxisStyle = {
+  line: lightGreyStroke,
+  text: { stroke: "none", fill: "#333", fontWeight: 600 }
+};
 
-const dataSets = [
-  "popularity",
-  "liveness",
-  "valence",
-  "instrumentalness",
-  "danceability",
-  "speechiness",
-  "acousticness",
-]
-
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const colors = ["#06D6A0", "#FFD166", "#EF476F", "#118AB2", "#F26419", "#4357AD", "#DB222A"]
-const LIGHT_GREY = "#DDD";
-const MAX_WINDOW_SIZE = 6;
-
-
+const convertToFeatureHeader = (feature, year) => {
+  const featureTitle = feature[0].toUpperCase() + feature.slice(1);
+  const formattedYear = year !== false ? `(${year + 2010})` : "";
+  return featureTitle + " " + formattedYear;
+};
 
 function SpotifyAnalysisPage() {
-  const [state, dispatch] = useReducer(reducer);
-
-
-}
-
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      selectedItem: "popularity",
-      hoveredYear: false,
-      windowSize: 0,
-      setDomain: false
-    }
-    this.incrementMovingAverageWindow = this.incrementMovingAverageWindow.bind(this);
-    this.decrementMovingAverageWindow = this.decrementMovingAverageWindow.bind(this);
-  }
-
-  decrementMovingAverageWindow() {
-    this.setState(prev =>
-      prev.windowSize > 0 ? { windowSize: prev.windowSize - 1 } : {}
-    )
-  }
-
-  incrementMovingAverageWindow() {
-    this.setState(prev =>
-      prev.windowSize < MAX_WINDOW_SIZE ? { windowSize: prev.windowSize + 1 } : {}
-    )
-  }
-
-  render() {
-    const playlistsByYear = chunk(playlists, 12);
-    return (
-      <>
-        <Banner header="9 Years of Monthly Playlists">
-          <button className="slide-transition" onClick={() => this.setState(prev => ({ setDomain: !prev.setDomain }))}>Set Domain</button>
-          <div>
-            <button className="button-control" onClick={this.decrementMovingAverageWindow}>&lt;</button>
-            {this.state.windowSize * 2} months
-          <button onClick={this.incrementMovingAverageWindow}>&gt;</button>
-          </div>
-        </Banner>
-        <div>
-          <XYPlot width={1000} height={300} yDomain={this.state.setDomain ? [0, 100] : undefined}>
-            <HorizontalGridLines style={{ stroke: LIGHT_GREY }} />
-            <VerticalGridLines style={{ stroke: LIGHT_GREY }} />
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const featureSectionHeader = convertToFeatureHeader(
+    state.selectedFeature,
+    state.hoveredYear
+  );
+  const areaSeriesSource = state.hoveredYear
+    ? playlistsByYear[state.hoveredYear]
+    : monthlyPlaylists;
+  return (
+    <div className="spotify-analysis">
+      <Header
+        windowSize={state.windowSize}
+        onToggleDomain={() => dispatch(toggleDomain())}
+        onIncrement={() => dispatch(incrementWindowSize())}
+        onDecrement={() => dispatch(decrementWindowSize())}
+      />
+      <Banner
+        color="green"
+        header="Feature Breakdown"
+        description="some description"
+        isToggledOnVisible={false}
+      >
+        <div className="plot-container">
+          <FlexibleWidthXYPlot
+            height={300}
+            yDomain={state.isDomainFixed ? [0, 100] : undefined}
+          >
+            <HorizontalGridLines style={lightGreyStroke} />
+            <VerticalGridLines style={lightGreyStroke} />
             <XAxis
-              title="Months"
-              style={{
-                line: { stroke: LIGHT_GREY },
-                text: { stroke: 'none', fill: '#333', fontWeight: 600 }
-              }}
-              tickFormat={value => playlists[value].name}
+              title="Years"
+              style={xAxisStyle}
+              tickValues={playlists.map((_, i) => i).filter(i => i % 12 === 0)}
+              tickFormat={value => 2010 + value / 12}
             />
             <YAxis />
-            {dataSets.map((type, i) => (<LineSeries
-              curve="curveMonotoneX"
-              key={i}
-              style={{
-                stroke: colors[i % colors.length],
-                strokeWidth: this.state.hoveredItem === type ? 4 : 1
-              }}
-              animation="gentle"
-              data={movingAverage(playlists
-                .map(playlist => playlist[type].average), this.state.windowSize)
-                .map((y, x) => ({ x, y }))
-              }
-            />))}
-          </XYPlot>
+            {AUDIO_FEATURES.map((type, i) => (
+              <LineSeries
+                curve="curveMonotoneX"
+                key={i}
+                style={{
+                  stroke: GRAPH_COLORS[i % GRAPH_COLORS.length],
+                  strokeWidth: state.hoveredFeature === type ? 4 : 1
+                }}
+                animation="gentle"
+                data={movingAverage(
+                  playlists.map(playlist => playlist[type].average),
+                  state.windowSize
+                ).map((y, x) => ({ x, y }))}
+              />
+            ))}
+          </FlexibleWidthXYPlot>
           <DiscreteColorLegend
             orientation="horizontal"
-            colors={colors}
-            items={dataSets}
-            onItemMouseEnter={i => this.setState({ hoveredItem: i })}
-            onItemClick={i => this.setState({ selectedItem: i })}
-            onItemMouseLeave={() => this.setState({ hoveredItem: false })} />
-        </div>
-        <h3>{`${this.state.selectedItem} ${this.state.hoveredYear !== false ? "(" + (this.state.hoveredYear + 2010) + ")" : ""}`}</h3>
-        <XYPlot width={1000} height={300} yDomain={this.state.setDomain ? [0, 100] : undefined}>
-          <GradientDefs>
-            <linearGradient id="CoolGradient" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor={colors[(this.state.hoveredYear + 1) % colors.length]} stopOpacity={0.4} />
-              <stop offset="100%" stopColor={colors[(this.state.hoveredYear + 2) % colors.length]} stopOpacity={0.3} />
-            </linearGradient>
-          </GradientDefs>
-          <HorizontalGridLines style={{ stroke: '#B7E9ED' }} />
-          <VerticalGridLines style={{ stroke: '#B7E9ED' }} />
-          <XAxis
-            title="X Axis"
-            style={{
-              line: { stroke: '#ADDDE1' },
-              ticks: { stroke: '#ADDDE1' },
-              text: { stroke: 'none', fill: '#6b6b76', fontWeight: 600 }
-            }}
-            tickFormat={i => i % 1 === 0 ? months[i] : ""}
+            colors={GRAPH_COLORS}
+            items={AUDIO_FEATURES}
+            onItemMouseEnter={feature => dispatch(setHoveredFeature(feature))}
+            onItemClick={feature => dispatch(setSelectedFeature(feature))}
+            onItemMouseLeave={() => dispatch(setHoveredFeature(undefined))}
           />
-          <YAxis title="Y Axis" />
-          {this.state.hoveredYear !== false ? <AreaSeries
-            color={'url(#CoolGradient)'}
-            curve="curveMonotoneX"
-            animation="gentle"
-            data={playlistsByYear[this.state.hoveredYear].map((playlist, x) => ({
-              x,
-              y: playlist[this.state.selectedItem].average - (playlist[this.state.selectedItem].standardDeviation / 2),
-              y0: playlist[this.state.selectedItem].average + (playlist[this.state.selectedItem].standardDeviation / 2)
-            }))}
-          /> : <AreaSeries
+        </div>
+      </Banner>
+      <Banner
+        color="blue"
+        header={featureSectionHeader}
+        description="some description"
+        isToggledOnVisible={false}
+      >
+        <div className="plot-container">
+          <FlexibleWidthXYPlot
+            height={300}
+            yDomain={state.isDomainFixed ? [0, 100] : undefined}
+          >
+            <GradientDefs>
+              <linearGradient id="CoolGradient" x1="0" x2="0" y1="0" y2="1">
+                <stop
+                  offset="0%"
+                  stopColor={
+                    GRAPH_COLORS[(state.hoveredYear + 1) % GRAPH_COLORS.length]
+                  }
+                  stopOpacity={0.4}
+                />
+                <stop
+                  offset="100%"
+                  stopColor={
+                    GRAPH_COLORS[(state.hoveredYear + 2) % GRAPH_COLORS.length]
+                  }
+                  stopOpacity={0.3}
+                />
+              </linearGradient>
+            </GradientDefs>
+            <HorizontalGridLines style={lightGreyStroke} />
+            <VerticalGridLines style={lightGreyStroke} />
+            <XAxis
+              title="Months"
+              style={xAxisStyle}
+              tickFormat={i => (i % 1 === 0 ? MONTHS[i] : "")}
+            />
+            <YAxis />
+            <AreaSeries
+              color={"url(#CoolGradient)"}
               curve="curveMonotoneX"
-              color={'url(#CoolGradient)'}
               animation="gentle"
-              data={monthlyPlaylists.map((playlist, x) => ({
+              data={areaSeriesSource.map((playlist, x) => ({
                 x,
-                y: playlist[this.state.selectedItem].average - (playlist[this.state.selectedItem].standardDeviation / 2),
-                y0: playlist[this.state.selectedItem].average + (playlist[this.state.selectedItem].standardDeviation / 2)
+                y:
+                  playlist[state.selectedFeature].average -
+                  playlist[state.selectedFeature].standardDeviation / 2,
+                y0:
+                  playlist[state.selectedFeature].average +
+                  playlist[state.selectedFeature].standardDeviation / 2
               }))}
-            />}
-          {this.state.hoveredYear === false && <LineSeries
-            curve="curveMonotoneX"
-            animation="gentle"
-            color="#fff"
-            style={{
-              strokeWidth: 4
-            }}
-            data={monthlyPlaylists.map((playlist, i) => ({
-              x: i,
-              y: playlist[this.state.selectedItem].average
-            }))}
-          />}
-          {playlistsByYear.map((year, i) => (<LineSeries
-            curve="curveMonotoneX"
-            animation="gentle"
-            key={i}
-            style={{
-              stroke: colors[i % colors.length],
-              strokeWidth: this.state.hoveredYear === i ? 4 : 1
-            }}
-            data={year.map((playlist, x) => ({ x, y: playlist[this.state.selectedItem].average }))}
-          />))}
-
-        </XYPlot>
-        <DiscreteColorLegend
-          orientation="horizontal"
-          items={playlistsByYear.map((_, i) => "201" + i)}
-          colors={colors}
-          onItemMouseEnter={i => this.setState({ hoveredYear: i - 2010 })}
-          onItemMouseLeave={() => this.setState({ hoveredYear: false })}
-          onItemClick={() => { }} />
-      </>
-    );
-  }
+            />
+            {state.hoveredYear === false && (
+              <LineSeries
+                curve="curveMonotoneX"
+                animation="gentle"
+                color="#fff"
+                style={{
+                  strokeWidth: 4
+                }}
+                data={monthlyPlaylists.map((playlist, i) => ({
+                  x: i,
+                  y: playlist[state.selectedFeature].average
+                }))}
+              />
+            )}
+            {playlistsByYear.map((year, i) => (
+              <LineSeries
+                curve="curveMonotoneX"
+                animation="gentle"
+                key={i}
+                style={{
+                  stroke: GRAPH_COLORS[i % GRAPH_COLORS.length],
+                  strokeWidth: state.hoveredYear === i ? 4 : 1
+                }}
+                data={year.map((playlist, x) => ({
+                  x,
+                  y: playlist[state.selectedFeature].average
+                }))}
+              />
+            ))}
+          </FlexibleWidthXYPlot>
+          <DiscreteColorLegend
+            orientation="horizontal"
+            items={playlistsByYear.map((_, i) => "201" + i)}
+            colors={GRAPH_COLORS}
+            onItemMouseEnter={i => dispatch(setHoveredYear(i - 2010))}
+            onItemMouseLeave={() => dispatch(setHoveredYear(false))}
+            onItemClick={() => {}}
+          />
+        </div>
+      </Banner>
+    </div>
+  );
 }
 
-const movingAverage = (array, windowSize = 0) => {
-  const newArray = [];
-  if (!windowSize) {
-    return array;
-  }
-  for (let i = 0; i < array.length; i++) {
-    const start = i - windowSize;
-    const end = i + windowSize
-    const actualStart = start >= 0 ? start : 0;
-    const actualEnd = (end < array.length) ? end : array.length - 1;
+const Header = ({ windowSize, onIncrement, onDecrement, onToggleDomain }) => (
+  <Banner header="9 Years of Monthly Playlists" isToggledOnVisible={false}>
+    <Flex>
+      <button onClick={onToggleDomain}>Use Fixed Graph Domain</button>
+      <Flex className="button-controls">
+        <button className="button-control" onClick={onDecrement}>
+          &lt;
+        </button>
+        {windowSize} months
+        <button className="button-control" onClick={onIncrement}>
+          &gt;
+        </button>
+      </Flex>
+    </Flex>
+  </Banner>
+);
 
-    const sample = array.slice(actualStart, actualEnd);
-    newArray.push(sample.reduce((acc, val) => {
-      acc += val;
-      return acc;
-    }, 0) / sample.length);
-  }
-  return newArray;
-}
-
-
-export default App;
+export default SpotifyAnalysisPage;

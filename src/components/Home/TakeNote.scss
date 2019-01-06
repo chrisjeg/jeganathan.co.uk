@@ -1,0 +1,108 @@
+.home {
+  .take-note {
+    .animated_box {
+      min-width: 300px;
+      overflow: hidden;
+      #animated_note {
+        position: relative;
+        -webkit-animation: spin 15s linear infinite;
+        -moz-animation: spin 15s linear infinite;
+        animation: spin 15s linear infinite;
+        transform-style: preserve-3d;
+        left: 50px;
+        height: 200px;
+        width: 200px;
+
+        @keyframes spin {
+          0% {
+            -webkit-transform: rotateY(0deg) rotateX(0deg) rotateZ(30deg);
+          }
+          100% {
+            -webkit-transform: rotateY(360deg) rotateX(0deg) rotateZ(30deg);
+          }
+        }
+
+        .staves {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          height: 100px;
+          justify-content: space-between;
+          top: 55px;
+          left: 5px;
+          > div {
+            width: 200px;
+            height: 5px;
+            border-radius: 20px;
+            background-color: #118ab2;
+            transform: rotateY(40deg) rotateX(45deg);
+          }
+        }
+
+        .box {
+          height: 20px;
+          width: 20px;
+          background-color: #118ab2;
+          position: absolute;
+          border-radius: 0px;
+
+          &.stem {
+            width: 5px;
+            height: 60px;
+            top: 40px;
+            left: 100px;
+            &.front {
+              transform: rotateY(0deg) translateZ(10px) translateX(0px);
+            }
+
+            &.back {
+              transform: rotateY(-180deg) translateZ(-5px) translateX(0px);
+            }
+
+            &.left {
+              transform: rotateY(-90deg) translateZ(2.5px) translateX(7.5px);
+            }
+
+            &.right {
+              transform: rotateY(90deg) translateZ(2.5px) translateX(-7.5px);
+            }
+          }
+
+          &.note_body {
+            top: 100px;
+            left: 100px;
+            &.front {
+              transform: rotateY(0deg) translateZ(10px);
+            }
+
+            &.back {
+              transform: rotateY(-180deg) translateZ(10px);
+            }
+
+            &.left {
+              transform: rotateY(-90deg) translateZ(10px);
+            }
+
+            &.right {
+              transform: rotateY(90deg) translateZ(10px);
+            }
+
+            &.top {
+              transform: rotateX(90deg) translateZ(10px);
+            }
+
+            &.bottom {
+              transform: rotateX(-90deg) translateZ(10px);
+            }
+          }
+
+          &.front,
+          &.left,
+          &.top {
+            background-color: #06d6a0;
+          }
+        }
+      }
+    }
+  }
+}

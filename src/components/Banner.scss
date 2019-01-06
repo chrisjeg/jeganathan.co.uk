@@ -1,0 +1,82 @@
+@import "_colors";
+
+@mixin color($primary, $secondary) {
+  background-color: $primary;
+  color: $secondary;
+  button {
+    background-color: $primary;
+    color: $secondary;
+    font-family: "Montserrat", sans-serif;
+    border: 1px solid $secondary;
+  }
+  a {
+    color: $secondary;
+  }
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+
+  button {
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  &.green {
+    @include color($green,$black);
+  }
+
+  &.yellow {
+    @include color($yellow,$true-black);
+  }
+
+  &.red {
+    @include color($red,$white);
+  }
+
+  &.blue {
+    @include color($blue,$white);
+  }
+
+  &.white {
+    @include color($white,$black);
+  }
+
+  .drop-transition {
+    transition: opacity 2s, transform 2s;
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  .slide-transition {
+    transition: opacity 2s, transform 2s;
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+
+  .banner-content {
+    max-width: 1040px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .banner-visible .drop-transition,
+  .banner-visible .slide-transition {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  .banner-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}

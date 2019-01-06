@@ -1,9 +1,11 @@
 import React from 'react';
+import classNames from "classnames";
 import OnVisible from 'react-on-visible';
-import './Banner.css'
+import './Banner.scss'
 
 export default ({
     children,
+    isToggledOnVisible = true,
     color = 'red',
     header,
     className,
@@ -14,7 +16,7 @@ export default ({
     Content
 })=>(
     <div className={`banner ${color} ${className || ""}`}>
-        <OnVisible visibleClassName="banner-visible" className="banner-content">
+        <OnVisible visibleClassName={isToggledOnVisible ? "banner-visible" : ""} className={isToggledOnVisible ? "banner-content" : "banner-content banner-visible"}>
             {header && (<h2 className="slide-transition">{emoji && (<span role="img" aria-label="emoji">{emoji}</span>)} {header}</h2>)}
             {Content && <Content/>}
             {children}
