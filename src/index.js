@@ -8,10 +8,10 @@ import SpotifyAnalysis from "./pages/SpotifyAnalysis";
 
 const AppRouter = () => (
   <Router>
-    <>
+    <div>
       <Route path="/" exact component={Home} />
       <Route path="/spotify-analysis/" component={SpotifyAnalysis} />
-    </>
+    </div>
   </Router>
 );
 
