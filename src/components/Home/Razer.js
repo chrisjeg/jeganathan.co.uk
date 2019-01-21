@@ -11,8 +11,9 @@ function RazerSection() {
   const [activeKey, setActiveKey] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => setActiveKey((activeKey + 1) % KEYS.length), 600);
-  });
+    const interval = setInterval(() => setActiveKey((activeKey + 1) % KEYS.length), 600);
+    return () => clearInterval(interval);
+  },[]);
 
   return (
     <div className="razer-animation drop-transition">
