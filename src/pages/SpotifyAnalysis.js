@@ -63,6 +63,7 @@ function SpotifyAnalysisPage() {
   return (
     <div className="spotify-analysis">
       <Header
+        isDomainFixed={state.isDomainFixed}
         windowSize={state.windowSize}
         onToggleDomain={() => dispatch(toggleDomain())}
         onIncrement={() => dispatch(incrementWindowSize())}
@@ -209,15 +210,23 @@ function SpotifyAnalysisPage() {
   );
 }
 
-const Header = ({ windowSize, onIncrement, onDecrement, onToggleDomain }) => (
+const Header = ({
+  isDomainFixed,
+  windowSize,
+  onIncrement,
+  onDecrement,
+  onToggleDomain
+}) => (
   <Banner header="9 Years of Monthly Playlists" isToggledOnVisible={false}>
     <Flex>
-      <button onClick={onToggleDomain}>Use Fixed Graph Domain</button>
+      <button onClick={onToggleDomain}>
+        Use {isDomainFixed ? "Dynamic" : "Fixed"} Graph Domain
+      </button>
       <Flex className="button-controls">
         <button className="button-control" onClick={onDecrement}>
           &lt;
         </button>
-        {windowSize} months
+        {windowSize * 2} months
         <button className="button-control" onClick={onIncrement}>
           &gt;
         </button>
