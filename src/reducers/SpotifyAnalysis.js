@@ -14,7 +14,13 @@ export const initialState = {
   hoveredYear: false,
   hoveredFeature: undefined,
   windowSize: 0,
-  isDomainFixed: false
+  isDomainFixed: false,
+  selectedTrack:{
+    track: "N/A",
+    artists: [],
+    uri: null,
+    albumArtUri:null
+  }
 };
 
 export default function reducer(state, action) {

@@ -3,7 +3,7 @@ import reducer, { initialState } from "../reducers/SpotifyAnalysis";
 import {
   toggleDomain,
   decrementWindowSize,
-  incrementWindowSize,
+  incrementWindowSize
 } from "../actions/SpotifyAnalysis";
 import "./SpotifyAnalysis.scss";
 import { Flex } from "../components/Layout";
@@ -11,7 +11,7 @@ import Banner from "../components/Banner";
 
 import FeatureBreakdown from "../components/SpotifyAnalysis/FeatureBreakdownPlot";
 import FeatureDetailPlot from "../components/SpotifyAnalysis/FeatureDetailPlot";
-
+import CompleteTrackScatter from "../components/SpotifyAnalysis/CompleteTrackScatter";
 
 const convertToFeatureHeader = (feature, year) => {
   const featureTitle = feature[0].toUpperCase() + feature.slice(1);
@@ -59,6 +59,13 @@ function SpotifyAnalysisPage() {
           hoveredYear={state.hoveredYear}
           selectedFeature={state.selectedFeature}
         />
+      </Banner>
+      <Banner
+        color="yellow"
+        header="All the tracks!"
+        isToggledOnVisible={false}
+      >
+        <CompleteTrackScatter isDomainFixed={state.isDomainFixed} selectedFeature={state.selectedFeature}/>
       </Banner>
     </div>
   );
