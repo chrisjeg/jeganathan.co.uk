@@ -1,0 +1,470 @@
+[
+  {
+    "name": "January",
+    "loudness": {
+      "average": -631.3315972222222,
+      "standardDeviation": 266.9813108759148
+    },
+    "liveness": {
+      "average": 18.239756944444462,
+      "standardDeviation": 13.508297060982795
+    },
+    "tempo": {
+      "average": 123.06432986111119,
+      "standardDeviation": 25.980170908155028
+    },
+    "valence": {
+      "average": 51.798159722222266,
+      "standardDeviation": 23.78474817462859
+    },
+    "instrumentalness": {
+      "average": 5.295453319444444,
+      "standardDeviation": 16.24669142792027
+    },
+    "danceability": {
+      "average": 57.41631944444445,
+      "standardDeviation": 14.349635270603287
+    },
+    "speechiness": {
+      "average": 6.7451736111111105,
+      "standardDeviation": 5.771617443490605
+    },
+    "popularity": {
+      "average": 23.57986111111111,
+      "standardDeviation": 22.93257525107347
+    },
+    "acousticness": {
+      "average": 17.613237222222217,
+      "standardDeviation": 26.425280450828588
+    }
+  },
+  {
+    "name": "February",
+    "loudness": {
+      "average": -660.1897435897437,
+      "standardDeviation": 358.9521080970684
+    },
+    "liveness": {
+      "average": 18.208333333333325,
+      "standardDeviation": 13.91961316466104
+    },
+    "tempo": {
+      "average": 122.98213782051286,
+      "standardDeviation": 25.630077345254147
+    },
+    "valence": {
+      "average": 52.64560897435898,
+      "standardDeviation": 23.40900041848408
+    },
+    "instrumentalness": {
+      "average": 6.639863403846159,
+      "standardDeviation": 19.118346020835492
+    },
+    "danceability": {
+      "average": 58.1474358974359,
+      "standardDeviation": 13.01899156287482
+    },
+    "speechiness": {
+      "average": 7.094807692307692,
+      "standardDeviation": 6.916726078236395
+    },
+    "popularity": {
+      "average": 24.993589743589745,
+      "standardDeviation": 22.682626975143947
+    },
+    "acousticness": {
+      "average": 17.991049134615384,
+      "standardDeviation": 25.597964450344527
+    }
+  },
+  {
+    "name": "March",
+    "loudness": {
+      "average": -604.1515060240964,
+      "standardDeviation": 270.73229343895423
+    },
+    "liveness": {
+      "average": 19.585331325301205,
+      "standardDeviation": 14.873664987547462
+    },
+    "tempo": {
+      "average": 124.50158132530107,
+      "standardDeviation": 26.018230052288136
+    },
+    "valence": {
+      "average": 51.43632530120483,
+      "standardDeviation": 22.904427408582112
+    },
+    "instrumentalness": {
+      "average": 3.6173872138554226,
+      "standardDeviation": 12.791962743372112
+    },
+    "danceability": {
+      "average": 59.05783132530119,
+      "standardDeviation": 12.76093093879264
+    },
+    "speechiness": {
+      "average": 7.823584337349401,
+      "standardDeviation": 7.299640854187038
+    },
+    "popularity": {
+      "average": 25.50602409638554,
+      "standardDeviation": 22.81218389355511
+    },
+    "acousticness": {
+      "average": 17.71320330421686,
+      "standardDeviation": 26.115593174277123
+    }
+  },
+  {
+    "name": "April",
+    "loudness": {
+      "average": -658.106513409962,
+      "standardDeviation": 287.7505536914221
+    },
+    "liveness": {
+      "average": 20.428314176245205,
+      "standardDeviation": 18.430369362532456
+    },
+    "tempo": {
+      "average": 121.76678927203066,
+      "standardDeviation": 28.720309228261467
+    },
+    "valence": {
+      "average": 57.292796934865905,
+      "standardDeviation": 22.692924673210157
+    },
+    "instrumentalness": {
+      "average": 5.625267570881226,
+      "standardDeviation": 17.566206453552606
+    },
+    "danceability": {
+      "average": 62.25977011494254,
+      "standardDeviation": 12.998891607513041
+    },
+    "speechiness": {
+      "average": 8.216015325670496,
+      "standardDeviation": 7.390753020846308
+    },
+    "popularity": {
+      "average": 22.17624521072797,
+      "standardDeviation": 21.747492580516962
+    },
+    "acousticness": {
+      "average": 16.73627938697318,
+      "standardDeviation": 25.085482150337256
+    }
+  },
+  {
+    "name": "May",
+    "loudness": {
+      "average": -640.5144531250004,
+      "standardDeviation": 291.5742780051243
+    },
+    "liveness": {
+      "average": 19.49527343750001,
+      "standardDeviation": 16.21827533453849
+    },
+    "tempo": {
+      "average": 125.0478984375,
+      "standardDeviation": 27.714379044124545
+    },
+    "valence": {
+      "average": 54.6581640625,
+      "standardDeviation": 22.41648100254997
+    },
+    "instrumentalness": {
+      "average": 6.978755355468748,
+      "standardDeviation": 19.89138948298663
+    },
+    "danceability": {
+      "average": 59.45625,
+      "standardDeviation": 14.231967606792264
+    },
+    "speechiness": {
+      "average": 7.710585937499999,
+      "standardDeviation": 7.460010674467836
+    },
+    "popularity": {
+      "average": 25.6796875,
+      "standardDeviation": 23.47228105534646
+    },
+    "acousticness": {
+      "average": 19.839351992187503,
+      "standardDeviation": 26.13140752130887
+    }
+  },
+  {
+    "name": "June",
+    "loudness": {
+      "average": -624.0053191489367,
+      "standardDeviation": 242.680505091936
+    },
+    "liveness": {
+      "average": 19.406063829787236,
+      "standardDeviation": 15.99744133576632
+    },
+    "tempo": {
+      "average": 122.70919858156027,
+      "standardDeviation": 26.405674536596617
+    },
+    "valence": {
+      "average": 57.63095744680856,
+      "standardDeviation": 22.919499882867107
+    },
+    "instrumentalness": {
+      "average": 4.474344425531917,
+      "standardDeviation": 15.22891135366497
+    },
+    "danceability": {
+      "average": 61.318439716312064,
+      "standardDeviation": 14.0953645889324
+    },
+    "speechiness": {
+      "average": 8.427695035460992,
+      "standardDeviation": 9.002502380817798
+    },
+    "popularity": {
+      "average": 24.23404255319149,
+      "standardDeviation": 22.64758266750465
+    },
+    "acousticness": {
+      "average": 14.666864716312052,
+      "standardDeviation": 21.261491038949487
+    }
+  },
+  {
+    "name": "July",
+    "loudness": {
+      "average": -618.7838056680165,
+      "standardDeviation": 241.79436162556252
+    },
+    "liveness": {
+      "average": 19.20186234817814,
+      "standardDeviation": 15.682769782862849
+    },
+    "tempo": {
+      "average": 120.1841417004048,
+      "standardDeviation": 25.047017630753707
+    },
+    "valence": {
+      "average": 55.811336032388674,
+      "standardDeviation": 24.196540576083137
+    },
+    "instrumentalness": {
+      "average": 1.8594136396761123,
+      "standardDeviation": 6.741386885110803
+    },
+    "danceability": {
+      "average": 60.106396761133595,
+      "standardDeviation": 13.487518212517735
+    },
+    "speechiness": {
+      "average": 7.700040485829962,
+      "standardDeviation": 6.87286105665212
+    },
+    "popularity": {
+      "average": 23.83400809716599,
+      "standardDeviation": 22.426591570713747
+    },
+    "acousticness": {
+      "average": 14.857852388663973,
+      "standardDeviation": 22.54653972891425
+    }
+  },
+  {
+    "name": "August",
+    "loudness": {
+      "average": -602.7556485355651,
+      "standardDeviation": 215.3988942750978
+    },
+    "liveness": {
+      "average": 19.230502092050223,
+      "standardDeviation": 14.214590761015486
+    },
+    "tempo": {
+      "average": 121.93992468619248,
+      "standardDeviation": 27.486799040297484
+    },
+    "valence": {
+      "average": 59.549288702928884,
+      "standardDeviation": 21.939315806637165
+    },
+    "instrumentalness": {
+      "average": 3.1609750251046043,
+      "standardDeviation": 11.01545213507733
+    },
+    "danceability": {
+      "average": 61.27071129707112,
+      "standardDeviation": 14.732775868316478
+    },
+    "speechiness": {
+      "average": 8.788619246861922,
+      "standardDeviation": 8.135282903344121
+    },
+    "popularity": {
+      "average": 22.338912133891213,
+      "standardDeviation": 22.029349036674738
+    },
+    "acousticness": {
+      "average": 13.12156761506276,
+      "standardDeviation": 19.41870100425286
+    }
+  },
+  {
+    "name": "September",
+    "loudness": {
+      "average": -598.093862815884,
+      "standardDeviation": 234.2456212726012
+    },
+    "liveness": {
+      "average": 19.443321299639,
+      "standardDeviation": 15.273772151652496
+    },
+    "tempo": {
+      "average": 122.71601805054152,
+      "standardDeviation": 26.978772054631396
+    },
+    "valence": {
+      "average": 55.641083032491,
+      "standardDeviation": 21.799400210726635
+    },
+    "instrumentalness": {
+      "average": 6.626480321299635,
+      "standardDeviation": 18.92755219127669
+    },
+    "danceability": {
+      "average": 59.65884476534298,
+      "standardDeviation": 15.454738829361878
+    },
+    "speechiness": {
+      "average": 8.182563176895304,
+      "standardDeviation": 8.754604146884036
+    },
+    "popularity": {
+      "average": 27.256317689530686,
+      "standardDeviation": 23.921883850800125
+    },
+    "acousticness": {
+      "average": 13.852154523465703,
+      "standardDeviation": 21.497587871882313
+    }
+  },
+  {
+    "name": "October",
+    "loudness": {
+      "average": -584.4653846153838,
+      "standardDeviation": 241.91069213044923
+    },
+    "liveness": {
+      "average": 19.155076923076912,
+      "standardDeviation": 13.899251903212757
+    },
+    "tempo": {
+      "average": 121.62196923076925,
+      "standardDeviation": 27.777471322640775
+    },
+    "valence": {
+      "average": 51.19761538461544,
+      "standardDeviation": 22.846090438972453
+    },
+    "instrumentalness": {
+      "average": 3.8022662192307686,
+      "standardDeviation": 13.537622215048964
+    },
+    "danceability": {
+      "average": 59.129615384615384,
+      "standardDeviation": 14.363994287726234
+    },
+    "speechiness": {
+      "average": 8.354846153846148,
+      "standardDeviation": 8.710216274226923
+    },
+    "popularity": {
+      "average": 27.615384615384617,
+      "standardDeviation": 25.320763715596637
+    },
+    "acousticness": {
+      "average": 14.606447730769235,
+      "standardDeviation": 22.911840193518316
+    }
+  },
+  {
+    "name": "November",
+    "loudness": {
+      "average": -601.0389705882351,
+      "standardDeviation": 235.7662863870117
+    },
+    "liveness": {
+      "average": 19.477205882352933,
+      "standardDeviation": 16.33671602002923
+    },
+    "tempo": {
+      "average": 120.99238602941178,
+      "standardDeviation": 28.115051312890156
+    },
+    "valence": {
+      "average": 49.16404411764706,
+      "standardDeviation": 24.155264188429125
+    },
+    "instrumentalness": {
+      "average": 4.660974772058826,
+      "standardDeviation": 15.754708338596286
+    },
+    "danceability": {
+      "average": 58.46470588235292,
+      "standardDeviation": 14.688572908316083
+    },
+    "speechiness": {
+      "average": 8.713382352941178,
+      "standardDeviation": 8.363912749900798
+    },
+    "popularity": {
+      "average": 24.772058823529413,
+      "standardDeviation": 23.948119482370938
+    },
+    "acousticness": {
+      "average": 16.054198566176463,
+      "standardDeviation": 22.981647547424757
+    }
+  },
+  {
+    "name": "December",
+    "loudness": {
+      "average": -611.6945652173911,
+      "standardDeviation": 251.72701792815403
+    },
+    "liveness": {
+      "average": 17.682228260869557,
+      "standardDeviation": 12.656880412790427
+    },
+    "tempo": {
+      "average": 120.9605869565216,
+      "standardDeviation": 27.862640412128325
+    },
+    "valence": {
+      "average": 52.569402173913026,
+      "standardDeviation": 24.871150693104678
+    },
+    "instrumentalness": {
+      "average": 4.458268358695653,
+      "standardDeviation": 16.052970582653188
+    },
+    "danceability": {
+      "average": 58.0711956521739,
+      "standardDeviation": 14.73179108282353
+    },
+    "speechiness": {
+      "average": 7.527608695652169,
+      "standardDeviation": 6.522797493912458
+    },
+    "popularity": {
+      "average": 23.782608695652176,
+      "standardDeviation": 23.804911137208975
+    },
+    "acousticness": {
+      "average": 19.158316315217387,
+      "standardDeviation": 26.159881150520455
+    }
+  }
+]
