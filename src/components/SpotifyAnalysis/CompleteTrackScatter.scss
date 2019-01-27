@@ -7,6 +7,10 @@
             height:100%;
         }
     }
+    .peak-tracks{
+        width:100%;
+        justify-content: space-around;
+    }
     .bold {
         background-color:white;
         padding:5px;
@@ -23,5 +27,6 @@
     }
     .scatter{
         flex-basis:1px;
+        min-width: 0;
     }
 }

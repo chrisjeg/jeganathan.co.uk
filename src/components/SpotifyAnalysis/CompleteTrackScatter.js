@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   FlexibleWidthXYPlot,
   XAxis,
@@ -26,20 +26,13 @@ export default function CompleteTrackScatter({
   selectedFeature
 }) {
   const [track, setTrack] = useState(tracks[0]);
-  const [update, forceUpdate] = useState();
-
-  useEffect(() => {
-    window.addEventListener('resize', forceUpdate);
-    return () => window.removeEventListener('resize', forceUpdate);
-  }, []);
 
   return (
     <Flex>
       <div className="plot-container scatter">
         <FlexibleWidthXYPlot
-          height={update && 300}
+          height={300}
           yDomain={isDomainFixed ? [0, 100] : undefined}
-          update={update}
         >
           <HorizontalGridLines style={lightGreyStroke} />
           <VerticalGridLines style={lightGreyStroke} />
@@ -82,17 +75,22 @@ const Track = ({
     <Flex className="track-info">
       <Flex column grow className="track-detail">
         <a href={uri}>
-        <img src={image} className="album-art" alt="album-art"/></a>
+          <img src={image} className="album-art" alt="album-art" />
+        </a>
         <div>{name}</div>
         <div>{artists[0]}</div>
         <div>{playlist}</div>
-        <audio controls src={preview_url} className="audio-sample"/>
       </Flex>
       <Flex column grow>
         {Object.keys(features).map(name => (
-          <div key={name} className={classNames({
-            bold: name === selectedFeature
-          })}>{name} : {(features[name] * 100).toFixed(2)}</div>
+          <div
+            key={name}
+            className={classNames({
+              bold: name === selectedFeature
+            })}
+          >
+            {name} : {(features[name] * 100).toFixed(2)}
+          </div>
         ))}
       </Flex>
     </Flex>

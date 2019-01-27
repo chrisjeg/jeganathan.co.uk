@@ -13,11 +13,14 @@ import {
 } from "react-vis";
 
 import { GRAPH_COLORS, MONTHS } from "../../lib/graphs";
+import { Flex } from "../Layout";
 import { setHoveredYear } from "../../actions/SpotifyAnalysis";
 import { lightGreyStroke, xAxisStyle } from "../reactVisStyles";
 
 import playlists from "./playlistData.json";
+import minAndMax from "./minAndMax.json";
 import monthlyPlaylists from "./monthlyPlaylistData.json";
+import EmbeddedTrack from "./EmbeddedTrack";
 
 const playlistsByYear = chunk(playlists, 12);
 
@@ -26,6 +29,17 @@ export default ({ dispatch, isDomainFixed, hoveredYear, selectedFeature }) => {
     ? playlistsByYear[hoveredYear]
     : monthlyPlaylists;
   return (
+    <Flex column>
+      <Flex className="peak-tracks">
+        <Flex column>
+          Maximum : {minAndMax[selectedFeature].maximum.value * 100}
+          <EmbeddedTrack id={minAndMax[selectedFeature].maximum.id}/>
+        </Flex>
+        <Flex column>
+          Minimum : {minAndMax[selectedFeature].minimum.value * 100}
+          <EmbeddedTrack id={minAndMax[selectedFeature].minimum.id}/>
+        </Flex>
+      </Flex>
     <div className="plot-container">
       <FlexibleWidthXYPlot
         height={300}
@@ -106,5 +120,6 @@ export default ({ dispatch, isDomainFixed, hoveredYear, selectedFeature }) => {
         onItemClick={() => {}}
       />
     </div>
+    </Flex>
   );
 };

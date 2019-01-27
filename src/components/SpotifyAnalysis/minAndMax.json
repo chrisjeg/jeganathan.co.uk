@@ -1,0 +1,100 @@
+{
+  "popularity": {
+    "minimum": {
+      "value": 0,
+      "name": "Soulman",
+      "artist": "Ben L'Oncle Soul",
+      "id": "2gimNqNEvudFhyjXOTdFPD"
+    },
+    "maximum": {
+      "value": 0.95,
+      "name": "High Hopes",
+      "artist": "Panic! At The Disco",
+      "id": "1rqqCSm0Qe4I9rUvWncaom"
+    }
+  },
+  "liveness": {
+    "minimum": {
+      "value": 0.0172,
+      "name": "Say It First",
+      "artist": "Darwin Deez",
+      "id": "31WsBqzUB6X5AMOY2ypwHH"
+    },
+    "maximum": {
+      "value": 0.981,
+      "name": "Not Coming Home",
+      "artist": "Maroon 5",
+      "id": "4Cd861RFVvR27Tyj8P4HIA"
+    }
+  },
+  "valence": {
+    "minimum": {
+      "value": 0.0309,
+      "name": "Winter Beats",
+      "artist": "I Break Horses",
+      "id": "2ZMIuQsCfQ8iNl27Piskct"
+    },
+    "maximum": {
+      "value": 0.981,
+      "name": "Hear to Wear",
+      "artist": "Metronomy",
+      "id": "0rntGhdqk0A0FEQgiLLGns"
+    }
+  },
+  "instrumentalness": {
+    "minimum": {
+      "value": 0,
+      "name": "The Road",
+      "artist": "Frank Turner",
+      "id": "5GaVkvQj7rYTlfC6Vo8Rsc"
+    },
+    "maximum": {
+      "value": 0.964,
+      "name": "The End Of You Too",
+      "artist": "Metronomy",
+      "id": "3zZQ8Sz3sCQdiF2yinpd33"
+    }
+  },
+  "danceability": {
+    "minimum": {
+      "value": 0.0998,
+      "name": "Winter Beats",
+      "artist": "I Break Horses",
+      "id": "2ZMIuQsCfQ8iNl27Piskct"
+    },
+    "maximum": {
+      "value": 0.967,
+      "name": "SexyBack",
+      "artist": "Justin Timberlake",
+      "id": "0O45fw2L5vsWpdsOdXwNAR"
+    }
+  },
+  "speechiness": {
+    "minimum": {
+      "value": 0.0237,
+      "name": "Stuck In A Moment You Can't Get Out Of",
+      "artist": "U2",
+      "id": "135bOPTl0vo3P5o1oBJIux"
+    },
+    "maximum": {
+      "value": 0.873,
+      "name": "Warm Water - Snakehips Remix",
+      "artist": "BANKS",
+      "id": "3TS39If59hqmh0Me2EYcq1"
+    }
+  },
+  "acousticness": {
+    "minimum": {
+      "value": 0.00000512,
+      "name": "Norgaard",
+      "artist": "The Vaccines",
+      "id": "1Q8reqCOXg2yqNr47HGo9X"
+    },
+    "maximum": {
+      "value": 0.996,
+      "name": "Traumerei Op.15/7 (Dreaming from Scenes From Childhood)",
+      "artist": "Robert Schumann",
+      "id": "0r5WUQa9ScxiIj8EtAMhwA"
+    }
+  }
+}
