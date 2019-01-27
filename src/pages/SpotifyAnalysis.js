@@ -39,6 +39,7 @@ function SpotifyAnalysisPage() {
         header="Feature Breakdown"
         description="some description"
         isToggledOnVisible={false}
+        fullscreen
       >
         <FeatureBreakdown
           dispatch={dispatch}
@@ -52,6 +53,7 @@ function SpotifyAnalysisPage() {
         header={featureSectionHeader}
         description="some description"
         isToggledOnVisible={false}
+        fullscreen
       >
         <FeatureDetailPlot
           dispatch={dispatch}
@@ -64,6 +66,7 @@ function SpotifyAnalysisPage() {
         color="yellow"
         header="All the tracks!"
         isToggledOnVisible={false}
+        fullscreen
       >
         <CompleteTrackScatter isDomainFixed={state.isDomainFixed} selectedFeature={state.selectedFeature}/>
       </Banner>
@@ -78,7 +81,7 @@ const Header = ({
   onDecrement,
   onToggleDomain
 }) => (
-  <Banner header="9 Years of Monthly Playlists" isToggledOnVisible={false}>
+  <Banner header="9 Years of Monthly Playlists" isToggledOnVisible={false} fullscreen>
     <Flex>
       <button onClick={onToggleDomain}>
         Use {isDomainFixed ? "Dynamic" : "Fixed"} Graph Domain

@@ -1,0 +1,27 @@
+.spotify-analysis {
+    .track-info {
+        min-width: 500px;
+        padding: 10px;
+        height:320px;
+        .track-detail{
+            height:100%;
+        }
+    }
+    .bold {
+        background-color:white;
+        padding:5px;
+        border-radius:5px;
+    }
+    .album-art{
+        width:150px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: white;
+    }
+    audio{
+        height:20px;
+    }
+    .scatter{
+        flex-basis:1px;
+    }
+}

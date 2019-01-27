@@ -66,6 +66,9 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    &.fullscreen{
+      max-width: initial;
+    }
   }
 
   .banner-visible .drop-transition,

@@ -2,6 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  &.grow{
+    flex-grow:1;
+    flex-basis:1px;
+  }
 }
 
 .flex.column {
