@@ -30,7 +30,8 @@ export const AUDIO_FEATURES = [
   "instrumentalness",
   "danceability",
   "speechiness",
-  "acousticness"
+  "acousticness",
+  "energy"
 ];
 
 export const movingAverage = (array, windowSize = 0) => {

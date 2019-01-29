@@ -1,8 +1,12 @@
 .spotify-analysis {
-    .track-info {
-        min-width: 500px;
+    .track-info{
+        width:100%;
+    }
+    .track-info>div {
+        min-width: 250px;
         padding: 10px;
         height:320px;
+        flex-grow:1;
         .track-detail{
             height:100%;
         }
@@ -27,6 +31,7 @@
     }
     .scatter{
         flex-basis:1px;
-        min-width: 0;
+        flex-grow:1;
+        min-width: 200px;
     }
 }

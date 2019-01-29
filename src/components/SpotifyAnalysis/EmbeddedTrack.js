@@ -5,7 +5,7 @@ export default ({ id, width = "300", height = "80" }) => (
     src={"https://open.spotify.com/embed/track/" + id}
     width={width}
     height={height}
-    frameborder="0"
+    frameBorder="0"
     allowtransparency="true"
     allow="encrypted-media"
   />

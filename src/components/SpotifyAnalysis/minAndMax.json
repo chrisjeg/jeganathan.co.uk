@@ -2,15 +2,15 @@
   "popularity": {
     "minimum": {
       "value": 0,
-      "name": "Soulman",
-      "artist": "Ben L'Oncle Soul",
-      "id": "2gimNqNEvudFhyjXOTdFPD"
+      "name": "Aftergold (feat. Tove Styrke)",
+      "artist": "Big Wild",
+      "id": "6rd1Q1AgiTCepneGxOoGAG"
     },
     "maximum": {
-      "value": 0.95,
-      "name": "High Hopes",
-      "artist": "Panic! At The Disco",
-      "id": "1rqqCSm0Qe4I9rUvWncaom"
+      "value": 0.93,
+      "name": "Close To Me (with Diplo) (feat. Swae Lee)",
+      "artist": "Ellie Goulding",
+      "id": "5JEx7HbmvHQQswJCsoo9rA"
     }
   },
   "liveness": {
@@ -44,9 +44,9 @@
   "instrumentalness": {
     "minimum": {
       "value": 0,
-      "name": "The Road",
-      "artist": "Frank Turner",
-      "id": "5GaVkvQj7rYTlfC6Vo8Rsc"
+      "name": "Little Secrets",
+      "artist": "Passion Pit",
+      "id": "3kb38wezoUA8ki5jPYy3t5"
     },
     "maximum": {
       "value": 0.964,
@@ -95,6 +95,20 @@
       "name": "Traumerei Op.15/7 (Dreaming from Scenes From Childhood)",
       "artist": "Robert Schumann",
       "id": "0r5WUQa9ScxiIj8EtAMhwA"
+    }
+  },
+  "energy": {
+    "minimum": {
+      "value": 0.00748,
+      "name": "Alloway Grove",
+      "artist": "Paolo Nutini",
+      "id": "6Pa5TNPNeEHlP1T6rI8iwC"
+    },
+    "maximum": {
+      "value": 0.995,
+      "name": "Zoo Time",
+      "artist": "Mystery Jets",
+      "id": "2zM7yR3VWa24HQGEjHsdR5"
     }
   }
 }

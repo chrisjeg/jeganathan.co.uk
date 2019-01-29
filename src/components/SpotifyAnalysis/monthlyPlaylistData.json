@@ -30,12 +30,16 @@
       "standardDeviation": 5.771617443490605
     },
     "popularity": {
-      "average": 23.57986111111111,
-      "standardDeviation": 22.93257525107347
+      "average": 24.32986111111111,
+      "standardDeviation": 23.687988046286048
     },
     "acousticness": {
       "average": 17.613237222222217,
       "standardDeviation": 26.425280450828588
+    },
+    "energy": {
+      "average": 71.57722222222226,
+      "standardDeviation": 19.046662686792452
     }
   },
   {
@@ -69,12 +73,16 @@
       "standardDeviation": 6.916726078236395
     },
     "popularity": {
-      "average": 24.993589743589745,
-      "standardDeviation": 22.682626975143947
+      "average": 25.83974358974359,
+      "standardDeviation": 23.40884950833373
     },
     "acousticness": {
       "average": 17.991049134615384,
       "standardDeviation": 25.597964450344527
+    },
+    "energy": {
+      "average": 70.50759615384618,
+      "standardDeviation": 20.134677106356087
     }
   },
   {
@@ -108,12 +116,16 @@
       "standardDeviation": 7.299640854187038
     },
     "popularity": {
-      "average": 25.50602409638554,
-      "standardDeviation": 22.81218389355511
+      "average": 26.575301204819276,
+      "standardDeviation": 23.45331014391326
     },
     "acousticness": {
       "average": 17.71320330421686,
       "standardDeviation": 26.115593174277123
+    },
+    "energy": {
+      "average": 71.7927710843373,
+      "standardDeviation": 19.59008493977092
     }
   },
   {
@@ -147,12 +159,16 @@
       "standardDeviation": 7.390753020846308
     },
     "popularity": {
-      "average": 22.17624521072797,
-      "standardDeviation": 21.747492580516962
+      "average": 22.862068965517242,
+      "standardDeviation": 22.383461827769754
     },
     "acousticness": {
       "average": 16.73627938697318,
       "standardDeviation": 25.085482150337256
+    },
+    "energy": {
+      "average": 70.96551724137926,
+      "standardDeviation": 19.438595099517116
     }
   },
   {
@@ -186,12 +202,16 @@
       "standardDeviation": 7.460010674467836
     },
     "popularity": {
-      "average": 25.6796875,
-      "standardDeviation": 23.47228105534646
+      "average": 26.51953125,
+      "standardDeviation": 24.136531773515465
     },
     "acousticness": {
       "average": 19.839351992187503,
       "standardDeviation": 26.13140752130887
+    },
+    "energy": {
+      "average": 71.30273437499996,
+      "standardDeviation": 19.834405449942174
     }
   },
   {
@@ -225,12 +245,16 @@
       "standardDeviation": 9.002502380817798
     },
     "popularity": {
-      "average": 24.23404255319149,
-      "standardDeviation": 22.64758266750465
+      "average": 24.921985815602838,
+      "standardDeviation": 23.229191023698085
     },
     "acousticness": {
       "average": 14.666864716312052,
       "standardDeviation": 21.261491038949487
+    },
+    "energy": {
+      "average": 71.27659574468085,
+      "standardDeviation": 18.04699929039721
     }
   },
   {
@@ -264,12 +288,16 @@
       "standardDeviation": 6.87286105665212
     },
     "popularity": {
-      "average": 23.83400809716599,
-      "standardDeviation": 22.426591570713747
+      "average": 24.700404858299596,
+      "standardDeviation": 23.233511502697844
     },
     "acousticness": {
       "average": 14.857852388663973,
       "standardDeviation": 22.54653972891425
+    },
+    "energy": {
+      "average": 73.26234817813766,
+      "standardDeviation": 17.980086075340495
     }
   },
   {
@@ -303,12 +331,16 @@
       "standardDeviation": 8.135282903344121
     },
     "popularity": {
-      "average": 22.338912133891213,
-      "standardDeviation": 22.029349036674738
+      "average": 22.86610878661088,
+      "standardDeviation": 22.399890782406647
     },
     "acousticness": {
       "average": 13.12156761506276,
       "standardDeviation": 19.41870100425286
+    },
+    "energy": {
+      "average": 73.84853556485358,
+      "standardDeviation": 16.456759867161292
     }
   },
   {
@@ -342,12 +374,16 @@
       "standardDeviation": 8.754604146884036
     },
     "popularity": {
-      "average": 27.256317689530686,
-      "standardDeviation": 23.921883850800125
+      "average": 27.862815884476536,
+      "standardDeviation": 24.629632427044886
     },
     "acousticness": {
       "average": 13.852154523465703,
       "standardDeviation": 21.497587871882313
+    },
+    "energy": {
+      "average": 73.52166064981945,
+      "standardDeviation": 17.096159204660296
     }
   },
   {
@@ -381,12 +417,16 @@
       "standardDeviation": 8.710216274226923
     },
     "popularity": {
-      "average": 27.615384615384617,
-      "standardDeviation": 25.320763715596637
+      "average": 28.338461538461537,
+      "standardDeviation": 25.997639882829368
     },
     "acousticness": {
       "average": 14.606447730769235,
       "standardDeviation": 22.911840193518316
+    },
+    "energy": {
+      "average": 73.95688461538457,
+      "standardDeviation": 17.304895727095012
     }
   },
   {
@@ -420,51 +460,59 @@
       "standardDeviation": 8.363912749900798
     },
     "popularity": {
-      "average": 24.772058823529413,
-      "standardDeviation": 23.948119482370938
+      "average": 25.363970588235293,
+      "standardDeviation": 24.712588998827336
     },
     "acousticness": {
       "average": 16.054198566176463,
       "standardDeviation": 22.981647547424757
+    },
+    "energy": {
+      "average": 72.49760294117645,
+      "standardDeviation": 18.27924416682477
     }
   },
   {
     "name": "December",
     "loudness": {
-      "average": -611.6945652173911,
-      "standardDeviation": 251.72701792815403
+      "average": -613.7870967741934,
+      "standardDeviation": 253.2524629589393
     },
     "liveness": {
-      "average": 17.682228260869557,
-      "standardDeviation": 12.656880412790427
+      "average": 17.608763440860205,
+      "standardDeviation": 12.608144432477912
     },
     "tempo": {
-      "average": 120.9605869565216,
-      "standardDeviation": 27.862640412128325
+      "average": 120.71462365591385,
+      "standardDeviation": 27.84025725219525
     },
     "valence": {
-      "average": 52.569402173913026,
-      "standardDeviation": 24.871150693104678
+      "average": 52.63263440860213,
+      "standardDeviation": 24.754676457911756
     },
     "instrumentalness": {
-      "average": 4.458268358695653,
-      "standardDeviation": 16.052970582653188
+      "average": 4.410329989247313,
+      "standardDeviation": 15.972617460165093
     },
     "danceability": {
-      "average": 58.0711956521739,
-      "standardDeviation": 14.73179108282353
+      "average": 58.147311827956976,
+      "standardDeviation": 14.699704658903677
     },
     "speechiness": {
-      "average": 7.527608695652169,
-      "standardDeviation": 6.522797493912458
+      "average": 7.603494623655909,
+      "standardDeviation": 6.612538960594209
     },
     "popularity": {
-      "average": 23.782608695652176,
-      "standardDeviation": 23.804911137208975
+      "average": 24.655913978494624,
+      "standardDeviation": 24.877426921633365
     },
     "acousticness": {
-      "average": 19.158316315217387,
-      "standardDeviation": 26.159881150520455
+      "average": 19.32462474193548,
+      "standardDeviation": 26.27313500464357
+    },
+    "energy": {
+      "average": 71.99301075268815,
+      "standardDeviation": 18.564147502861307
     }
   }
 ]

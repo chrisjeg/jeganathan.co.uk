@@ -5,7 +5,7 @@ import {
   YAxis,
   HorizontalGridLines,
   VerticalGridLines,
-  MarkSeriesCanvas
+  MarkSeries
 } from "react-vis";
 
 import "./CompleteTrackScatter.scss";
@@ -28,7 +28,7 @@ export default function CompleteTrackScatter({
   const [track, setTrack] = useState(tracks[0]);
 
   return (
-    <Flex>
+    <Flex wrap>
       <div className="plot-container scatter">
         <FlexibleWidthXYPlot
           height={300}
@@ -43,7 +43,7 @@ export default function CompleteTrackScatter({
             tickFormat={value => 2010 + value / 12}
           />
           <YAxis />
-          <MarkSeriesCanvas
+          <MarkSeries
             size={2}
             onNearestXY={value => setTrack(value.track)}
             data={tracks
@@ -72,7 +72,7 @@ const Track = ({
   ...features
 }) => {
   return (
-    <Flex className="track-info">
+    <Flex wrap className="track-info">
       <Flex column grow className="track-detail">
         <a href={uri}>
           <img src={image} className="album-art" alt="album-art" />
