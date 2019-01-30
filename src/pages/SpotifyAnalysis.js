@@ -37,7 +37,7 @@ function SpotifyAnalysisPage() {
       <Banner
         color="green"
         header="Feature Breakdown"
-        description="some description"
+        description="Above, each of the playlists is broken down into its features, made from the averages of the tracks that the playlist contains, selecting a feature will provide detail below"
         isToggledOnVisible={false}
         fullscreen
       >
@@ -51,7 +51,7 @@ function SpotifyAnalysisPage() {
       <Banner
         color="blue"
         header={featureSectionHeader}
-        description="some description"
+        description="By default, this graph will show the average created from each of the months and the area graph represents a standard deviation of ± 0.5, selecting a year will show the standard deviation for the months of that year"
         isToggledOnVisible={false}
         fullscreen
       >
@@ -65,10 +65,15 @@ function SpotifyAnalysisPage() {
       <Banner
         color="yellow"
         header="All the tracks!"
+        emoji="🔥"
+        description={`Finally, this section is showing the individual points that make up the playlists, currently broken down by ${state.selectedFeature}. Highlight one to see the track details above!`}
         isToggledOnVisible={false}
         fullscreen
       >
-        <CompleteTrackScatter isDomainFixed={state.isDomainFixed} selectedFeature={state.selectedFeature}/>
+        <CompleteTrackScatter
+          isDomainFixed={state.isDomainFixed}
+          selectedFeature={state.selectedFeature}
+        />
       </Banner>
     </div>
   );
@@ -81,13 +86,19 @@ const Header = ({
   onDecrement,
   onToggleDomain
 }) => (
-  <Banner header="9 Years of Monthly Playlists" isToggledOnVisible={false} fullscreen>
-    <Flex>
+  <Banner
+    header="9 Years of Monthly Playlists"
+    emoji="🎉"
+    isToggledOnVisible={false}
+    fullscreen
+    description={`I've been using Spotify for over 9 years now, and also been meticulously creating a playlist per month since January 2010. I figured it might be fun to see what I can pull out about my listening history using Spotify's "Audio Feature" API. \n\nYou can mess with these graphs using the buttons above - fixing the graph domain shows the full domain size of the API output and adjusting the window size lets you apply a moving average to the dataset`}
+  >
+    <Flex className="main-controls">
       <button onClick={onToggleDomain}>
         Use {isDomainFixed ? "Dynamic" : "Fixed"} Graph Domain
       </button>
       <Flex className="button-controls">
-        <button className="button-control" onClick={onDecrement}>
+        Window Size: <button className="button-control" onClick={onDecrement}>
           &lt;
         </button>
         {windowSize * 2} months

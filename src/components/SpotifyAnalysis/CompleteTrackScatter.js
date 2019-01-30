@@ -28,7 +28,7 @@ export default function CompleteTrackScatter({
   const [track, setTrack] = useState(tracks[0]);
 
   return (
-    <Flex wrap>
+    <Flex wrap className="complete-track-scatter">
       <div className="plot-container scatter">
         <FlexibleWidthXYPlot
           height={300}
@@ -42,7 +42,7 @@ export default function CompleteTrackScatter({
             tickValues={playlists.map((_, i) => i).filter(i => i % 12 === 0)}
             tickFormat={value => 2010 + value / 12}
           />
-          <YAxis />
+          <YAxis title={selectedFeature} />
           <MarkSeries
             size={2}
             onNearestXY={value => setTrack(value.track)}
