@@ -5,7 +5,8 @@ export const GRAPH_COLORS = [
   "#118AB2",
   "#F26419",
   "#4357AD",
-  "#DB222A"
+  "#DB222A",
+  "#9F87AF"
 ];
 
 export const MONTHS = [
