@@ -6,7 +6,6 @@ import {
   incrementWindowSize
 } from "../actions/SpotifyAnalysis";
 import "./SpotifyAnalysis.scss";
-import { Flex } from "../components/Layout";
 import Banner from "../components/Banner";
 
 import FeatureBreakdown from "../components/SpotifyAnalysis/FeatureBreakdownPlot";
