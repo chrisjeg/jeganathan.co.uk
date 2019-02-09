@@ -1,17 +1,19 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.css";
 
-import Home from "./pages/Home";
-import SpotifyAnalysis from "./pages/SpotifyAnalysis";
+const Home = lazy(() => import("./pages/Home"));
+const SpotifyAnalysis = lazy(() => import("./pages/SpotifyAnalysis"));
 
 const AppRouter = () => (
   <Router>
-    <div>
-      <Route path="/" exact component={Home} />
-      <Route path="/spotify-analysis/" component={SpotifyAnalysis} />
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Switch>
+        <Route path="/" exact render={()=><Home/>} />
+        <Route path="/spotify-analysis/" component={()=><SpotifyAnalysis/>} />
+      </Switch>
+    </Suspense>
   </Router>
 );
 
