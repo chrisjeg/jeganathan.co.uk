@@ -29,7 +29,7 @@ export default function CompleteTrackScatter({
 
   return (
     <Flex wrap className="complete-track-scatter">
-      <div className="plot-container scatter">
+      <div className="plot-container">
         <FlexibleWidthXYPlot
           height={300}
           yDomain={isDomainFixed ? [0, 100] : undefined}

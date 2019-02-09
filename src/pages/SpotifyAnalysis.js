@@ -12,6 +12,7 @@ import Banner from "../components/Banner";
 import FeatureBreakdown from "../components/SpotifyAnalysis/FeatureBreakdownPlot";
 import FeatureDetailPlot from "../components/SpotifyAnalysis/FeatureDetailPlot";
 import CompleteTrackScatter from "../components/SpotifyAnalysis/CompleteTrackScatter";
+import MyAverageSong from "../components/SpotifyAnalysis/MyAverageSong";
 
 const convertToFeatureHeader = (feature, year) => {
   const featureTitle = feature[0].toUpperCase() + feature.slice(1);
@@ -34,6 +35,15 @@ function SpotifyAnalysisPage() {
         onIncrement={() => dispatch(incrementWindowSize())}
         onDecrement={() => dispatch(decrementWindowSize())}
       />
+      <Banner
+        color="yellow"
+        header='My "Average" Song'
+        description='To start with, I got the mean all of the features in my collection to get what my "average" track would look like (shown on the left). Using this data, I managed to sort all of my tracks by Euclidean distance (ascending), avaliable as a playlist on the right!'
+        isToggledOnVisible={false}
+        fullscreen
+      >
+        <MyAverageSong />
+      </Banner>
       <Banner
         color="green"
         header="Feature Breakdown"
@@ -66,7 +76,9 @@ function SpotifyAnalysisPage() {
         color="yellow"
         header="All the tracks!"
         emoji="🔥"
-        description={`Finally, this section is showing the individual points that make up the playlists, currently broken down by ${state.selectedFeature}. Highlight one to see the track details above!`}
+        description={`Finally, this section is showing the individual points that make up the playlists, currently broken down by ${
+          state.selectedFeature
+        }. Highlight one to see the track details above!`}
         isToggledOnVisible={false}
         fullscreen
       >
@@ -98,7 +110,8 @@ const Header = ({
         Use {isDomainFixed ? "Dynamic" : "Fixed"} Graph Domain
       </button>
       <Flex className="button-controls">
-        Window Size: <button className="button-control" onClick={onDecrement}>
+        Window Size:{" "}
+        <button className="button-control" onClick={onDecrement}>
           &lt;
         </button>
         {windowSize * 2} months
@@ -109,7 +122,5 @@ const Header = ({
     </Flex>
   </Banner>
 );
-
-
 
 export default SpotifyAnalysisPage;

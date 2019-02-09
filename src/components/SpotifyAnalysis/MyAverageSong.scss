@@ -1,0 +1,19 @@
+.average-song-playlist{
+    flex-grow:1;
+    flex-shrink: 0;
+    height: 400px;
+    min-width: 200px;
+    padding: 10px;
+}
+
+.radar-container{
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    margin: 15px 0px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 400px;
+    max-width: 400px;
+    padding: 5px;
+}
