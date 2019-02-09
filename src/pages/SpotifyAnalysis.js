@@ -110,4 +110,6 @@ const Header = ({
   </Banner>
 );
 
+
+
 export default SpotifyAnalysisPage;
