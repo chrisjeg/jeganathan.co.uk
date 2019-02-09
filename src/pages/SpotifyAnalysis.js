@@ -13,6 +13,7 @@ import FeatureBreakdown from "../components/SpotifyAnalysis/FeatureBreakdownPlot
 import FeatureDetailPlot from "../components/SpotifyAnalysis/FeatureDetailPlot";
 import CompleteTrackScatter from "../components/SpotifyAnalysis/CompleteTrackScatter";
 import MyAverageSong from "../components/SpotifyAnalysis/MyAverageSong";
+import Header from "../components/SpotifyAnalysis/Header";
 
 const convertToFeatureHeader = (feature, year) => {
   const featureTitle = feature[0].toUpperCase() + feature.slice(1);
@@ -90,37 +91,5 @@ function SpotifyAnalysisPage() {
     </div>
   );
 }
-
-const Header = ({
-  isDomainFixed,
-  windowSize,
-  onIncrement,
-  onDecrement,
-  onToggleDomain
-}) => (
-  <Banner
-    header="9 Years of Monthly Playlists"
-    emoji="🎉"
-    isToggledOnVisible={false}
-    fullscreen
-    description={`I've been using Spotify for over 9 years now, and also been meticulously creating a playlist per month since January 2010. I figured it might be fun to see what I can pull out about my listening history using Spotify's "Audio Feature" API. \n\nYou can mess with these graphs using the buttons above - fixing the graph domain shows the full domain size of the API output and adjusting the window size lets you apply a moving average to the dataset`}
-  >
-    <Flex className="main-controls">
-      <button onClick={onToggleDomain}>
-        Use {isDomainFixed ? "Dynamic" : "Fixed"} Graph Domain
-      </button>
-      <Flex className="button-controls">
-        Window Size:{" "}
-        <button className="button-control" onClick={onDecrement}>
-          &lt;
-        </button>
-        {windowSize * 2} months
-        <button className="button-control" onClick={onIncrement}>
-          &gt;
-        </button>
-      </Flex>
-    </Flex>
-  </Banner>
-);
 
 export default SpotifyAnalysisPage;

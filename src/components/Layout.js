@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import "./Layout.scss";
 
-export const Flex = ({ children, center, column, className, grow, wrap }) => (
+export const Flex = ({ children, center, column, className, grow, wrap, spaceAround }) => (
   <div
     className={classNames(
       "flex",
@@ -10,7 +10,8 @@ export const Flex = ({ children, center, column, className, grow, wrap }) => (
         center,
         column, 
         grow,
-        wrap
+        wrap,
+        spaceAround
       },
       className
     )}
