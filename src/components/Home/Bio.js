@@ -34,9 +34,9 @@ export default function Bio() {
             alt="profile"
           />
           <div className="bio-description">
-            <span className="role">Lead Developer</span>
+            <span className="role">Full Stack Dev</span>
             <br />
-            <span className="location">at Nomura</span>
+            <span className="location">at Palantir</span>
           </div>
         </div>
       </div>
