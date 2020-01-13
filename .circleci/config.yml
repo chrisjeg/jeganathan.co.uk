@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:lts
+      - image: circleci/node:dubnium
     working_directory: ~/repo
     context: org-global
     steps:
