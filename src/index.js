@@ -4,11 +4,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.css";
 import Home from "./pages/Home";
 import SpotifyAnalysisFallback from "./pages/fallback/SpotifyAnalysisFallback";
+import BikeWheel from "./pages/BikeWheel";
 const SpotifyAnalysis = lazy(() => import("./pages/SpotifyAnalysis"));
 
 const AppRouter = () => (
   <Router>
     <Switch>
+      <Route path="/bike" render={() => <BikeWheel />} />
       <Route path="/" exact render={() => <Home />} />
       <Suspense fallback={<SpotifyAnalysisFallback />}>
         <Route

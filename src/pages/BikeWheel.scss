@@ -1,0 +1,13 @@
+.wheel-frame {
+  width: 251vw;
+  height: 251vw;
+  position: absolute;
+  top: -125vw - 25vw;
+  left: -125vw + 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > svg {
+    flex-grow: 1;
+  }
+}
