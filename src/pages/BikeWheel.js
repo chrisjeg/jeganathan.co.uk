@@ -1,14 +1,48 @@
 import React from "react";
 import regression from "regression";
 import "./BikeWheel.scss";
+import confetti from "canvas-confetti";
 
-const startTime = Date.now();
+const START_TIME = Date.now();
+const SEGMENTS = [
+  "Tequila",
+  "Cafe Patron",
+  "Black Sambuca",
+  "Beer",
+  "Cider",
+  "Vodka",
+  "Sourz",
+];
+
+const superConfetti = () => {
+  var end = Date.now() + 10 * 1000;
+
+  (function frame() {
+    confetti({
+      particleCount: 2,
+      angle: 60,
+      spread: 55,
+      origin: { x: 0 },
+    });
+    confetti({
+      particleCount: 2,
+      angle: 120,
+      spread: 55,
+      origin: { x: 1 },
+    });
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+  })();
+};
 
 const BikeWheel = () => {
   const [rotation, setRotation] = React.useState(0);
   const requestRef = React.useRef();
   const previousTimeRef = React.useRef();
   const [device, setDevice] = React.useState();
+  const [rpm, setRpm] = React.useState(0);
 
   const revolutionData = React.useRef(null);
   const noUpdateCounter = React.useRef(0);
@@ -75,7 +109,7 @@ const BikeWheel = () => {
       if (rpmDelta < 0) {
         storedEvents.current = [];
       } else if (rpmDelta < 10 && rpmDelta > 0.5 && newData.rpm !== 0) {
-        storedEvents.current.push([Date.now() - startTime, newData.rpm]);
+        storedEvents.current.push([Date.now() - START_TIME, newData.rpm]);
       }
 
       if (
@@ -84,8 +118,8 @@ const BikeWheel = () => {
       ) {
         const [, guess] = regression
           .linear(storedEvents.current, { order: 5, precision: 4 })
-          .predict(Date.now() - startTime);
-        if (guess > 0) {
+          .predict(Date.now() - START_TIME);
+        if (guess > 10) {
           revolutionData.current = {
             ...newData,
             rpm: guess,
@@ -106,15 +140,18 @@ const BikeWheel = () => {
   }, []);
 
   const animate = (time) => {
-    setRotation((prevRotation) =>
-      revolutionData.current != null
-        ? (prevRotation +
+    if (revolutionData.current != null) {
+      setRotation(
+        (prevRotation) =>
+          (prevRotation +
             (time - previousTimeRef.current) *
               (revolutionData.current.rpm / 60000) *
               360) %
           360
-        : 0
-    );
+      );
+      setRpm(revolutionData.current.rpm);
+    }
+
     previousTimeRef.current = time;
     requestRef.current = requestAnimationFrame(animate);
   };
@@ -124,31 +161,33 @@ const BikeWheel = () => {
     return () => cancelAnimationFrame(requestRef.current);
   }, []); // Make sure the effect runs only once
 
+  React.useEffect(
+    () => {
+      if (rpm === 0) {
+        superConfetti();
+      }
+    },
+    [rpm]
+  );
+
   if (device == null) {
     return <button onClick={setupDevice}>Setup</button>;
   }
-
+  const currentSegment = Math.floor(
+    (((rotation + 90) % 360) / 360) * SEGMENTS.length
+  );
   return (
-    <div className="wheel-frame">
-      <WheelSVG diameter={640} rotation={rotation} />
-    </div>
+    <>
+      <div className="wheel-frame">
+        <WheelSVG diameter={640} rotation={rotation} />
+      </div>
+      {rpm === 0 && <div className="yay">{SEGMENTS[currentSegment]}</div>}
+    </>
   );
 };
 
 const WheelSVG = ({ diameter = 0, rotation = 0 }) => {
   const radius = diameter / 2;
-  const segments = [
-    "Tequila",
-    "Tequila",
-    "Tequila",
-    "Tequila",
-    "Tequila",
-    "Tequila",
-    "Tequila",
-    "Tequila",
-    "Tequila",
-    "Tequila",
-  ];
   return (
     <svg viewBox={`0 0 ${diameter} ${diameter}`}>
       <g transform={`translate(${radius}, ${radius}) rotate(${rotation})`}>
@@ -162,12 +201,12 @@ const WheelSVG = ({ diameter = 0, rotation = 0 }) => {
             stroke="black"
             stroke-width="10"
           />
-          {segments.map((drink, index) => {
+          {SEGMENTS.map((drink, index) => {
             return (
               <WheelSegment
                 key={index}
                 segmentNumber={index}
-                segmentCount={segments.length}
+                segmentCount={SEGMENTS.length}
                 text={drink}
                 r={radius}
               />
